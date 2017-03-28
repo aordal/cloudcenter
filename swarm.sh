@@ -53,4 +53,7 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-sudo docker -H localhost:2376 swarm init
+sudo ip route | grep default > interface
+result=$(grep-o 'ens[0-9][0-9] interface') --advertise-addr  $result
+
+sudo docker -H localhost:2376 swarm init 
