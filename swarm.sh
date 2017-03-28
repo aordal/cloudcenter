@@ -49,6 +49,8 @@ ExecStart=
 ExecStart=/usr/bin/dockerd -D -H tcp://0.0.0.0:2376
 EOF
 
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
